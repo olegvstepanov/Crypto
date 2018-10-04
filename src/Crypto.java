@@ -17,7 +17,7 @@ public class Crypto {
         text = normalizeText1(text);
         text = obifyText1(text);
         text = ceaserifyText(text, shift);
-//        text = groupify(text, groupSize);
+        text = groupifyText(text, groupSize);
         return  text;
     }
 
@@ -83,33 +83,19 @@ public class Crypto {
         return result;
     }
 
-    // ==================================================
 
-    public static String groupify(String string, int groupSize){
-        string = string.replaceAll("\\s", "");
-        String groupifiedString = "";
+    public static String groupifyText(String text, int groupSize){
+        text = text.replaceAll("\\s","");
+        String groupifiedText = "";
 
-        for (int i = 0; i < string.length(); i++){
-
-            if (i % groupSize==0 && i >0){
-                groupifiedString += " " + string.charAt(i);
-
-            } else if (i == (string.length() - 1)){ // groupifiedString += string.charAt(i);
-
-            } else{
-                groupifiedString += string.charAt(i);
-            }
-
-        }
-
-        if ((string.length() % groupSize) != 0){
-            int start = groupifiedString.length();
-            int end = (start + groupSize- (string.length() % groupSize));
-            for (int i = start; i  < end; i++){
-                groupifiedString += "x";
+        for (int i = 0; i < text.length();i++){
+            if (i == 0 || i % groupSize != 0){
+                groupifiedText += text.charAt(i);
+            } else if (i % groupSize == 0) {
+                groupifiedText += " " + text.charAt(i);
             }
         }
 
-        return  groupifiedString;
+        return groupifiedText;
     }
 }
