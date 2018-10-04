@@ -84,32 +84,32 @@ public class Crypto {
     }
 
     // ==================================================
-//    public static String groupify(String string, int groupSize){
-//        string = string.replaceAll("\\s", "");
-//        String groupifiedString = "";
-//
-//        for (int i = 0; i < string.length(); i++){
-//
-//            if (i % groupSize==0 && i >0){
-//                groupifiedString += " " + string.charAt(i);
 
-// } else if (i == (string.length() - 1)){ // groupifiedString += string.charAt(i);
+    public static String groupify(String string, int groupSize){
+        string = string.replaceAll("\\s", "");
+        String groupifiedString = "";
 
-//            } else{
-//                groupifiedString += string.charAt(i);
-//            }
-//
-//        }
-//
-//        if ((string.length() % groupSize) != 0){
-//            int start = groupifiedString.length();
-//            int end = (start + groupSize- (string.length() % groupSize));
-//            for (int i = start; i  < end; i++){
-//                groupifiedString += "x";
-//            }
-//        }
-//
-//        return  groupifiedString;
-//    }
+        for (int i = 0; i < string.length(); i++){
 
+            if (i % groupSize==0 && i >0){
+                groupifiedString += " " + string.charAt(i);
+
+            } else if (i == (string.length() - 1)){ // groupifiedString += string.charAt(i);
+
+            } else{
+                groupifiedString += string.charAt(i);
+            }
+
+        }
+
+        if ((string.length() % groupSize) != 0){
+            int start = groupifiedString.length();
+            int end = (start + groupSize- (string.length() % groupSize));
+            for (int i = start; i  < end; i++){
+                groupifiedString += "x";
+            }
+        }
+
+        return  groupifiedString;
+    }
 }
